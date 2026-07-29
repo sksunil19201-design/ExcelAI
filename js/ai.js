@@ -29279,29 +29279,71 @@ const AI_DATABASE = [
 
 
 /*======================================
- Search Formula
+ Smart Search Engine
 ======================================*/
 
-function searchFormula(question){
+function searchFormula(question) {
 
-    question = question.toLowerCase();
+    question = question.toLowerCase().trim();
 
-    for(let item of AI_DATABASE){
+    const results = [];
 
-        for(let key of item.keywords){
+    AI_DATABASE.forEach(item => {
 
-            if(question.includes(key)){
+        let score = 0;
 
-                return item;
+        // Title Match
+        if (item.title &&
+            item.title.toLowerCase().includes(question)) {
 
-            }
+            score += 100;
+        }
+
+        // Keyword Match
+        if (item.keywords) {
+
+            item.keywords.forEach(keyword => {
+
+                keyword = keyword.toLowerCase();
+
+                // User typed the keyword
+                if (question.includes(keyword)) {
+                    score += 20;
+                }
+
+                // Keyword contains the user text
+                if (keyword.includes(question)) {
+                    score += 10;
+                }
+
+            });
 
         }
 
-    }
+        // Formula Match
+        if (item.formula &&
+            item.formula.toLowerCase().includes(question)) {
 
-    return null;
+            score += 15;
+        }
+
+        // Add to results
+        if (score > 0) {
+
+            results.push({
+                ...item,
+                score: score
+            });
+
+        }
+
+    });
+
+    // Highest score first
+    results.sort((a, b) => b.score - a.score);
+
+    return results;
 
 }
 
-console.log("✅ ai.js Loaded");
+console.log("✅ Smart Search Engine Loaded");

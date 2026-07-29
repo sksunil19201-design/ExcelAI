@@ -52,20 +52,21 @@ function generateAnswer() {
 
     }
 
-    const result = searchFormula(question);
+const results = searchFormula(question);
 
-    if (!result) {
+if (results.length === 0) {
 
-        showNotFound();
+    showNotFound();
 
-        return;
-
-    }
-
-    fillResult(result);
+    return;
 
 }
 
+// Show Best Match
+fillResult(results[0]);
+
+// Show All Matches
+renderSearchResults(results);
 
 /*=========================================
  Fill Result
@@ -134,6 +135,47 @@ function fillResult(result) {
 
 }
 
+/*=========================================
+ Render Search Results
+=========================================*/
+
+function renderSearchResults(results) {
+
+    const container = document.getElementById("searchResults");
+
+    if (!container) return;
+
+    container.innerHTML = "";
+
+    // Don't show the first result because it is already displayed
+    results.slice(1).forEach(result => {
+
+        const item = document.createElement("div");
+
+        item.className = "search-item";
+
+        item.innerHTML = `
+            <div class="search-left">
+                <strong>${result.title}</strong><br>
+                <small>${result.formula}</small>
+            </div>
+
+            <div class="search-score">
+                ${result.score}
+            </div>
+        `;
+
+        item.addEventListener("click", function () {
+
+            fillResult(result);
+
+        });
+
+        container.appendChild(item);
+
+    });
+
+}
 
 /*=========================================
  Search History
@@ -182,5 +224,14 @@ function showNotFound() {
     document.getElementById("breakdown").innerHTML = "";
 
     document.getElementById("tableContainer").innerHTML = "";
+
+  // Clear search results
+    const container = document.getElementById("searchResults");
+
+    if (container) {
+        container.innerHTML = "";
+    }
+
+}
 
 }
