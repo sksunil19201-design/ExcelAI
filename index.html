@@ -48,7 +48,7 @@
 
             <h3>Recent Searches</h3>
 
-            <ul id="historyList">
+            <ul id="historyList1">
 
                 <li>SUMIF Example</li>
                 <li>VLOOKUP</li>
@@ -78,7 +78,7 @@
 <br>
             <marquee>
      <!-- contents -->
- <marque <h5>Developed ❤️ by <strong>Sunil.K ( Copy_Paste_Bhaiya)</strong></h5></marquee>  
+ <marque> <h5>Developed ❤️ by <strong>Sunil.K ( Copy_Paste_Bhaiya)</strong></h5></marquee>  
 
 
             </div>
@@ -91,24 +91,33 @@
 
         </header>
 
-        <!-- Prompt -->
+       <!-- Prompt -->
 
-        <section class="prompt-area">
+<section class="prompt-area">
 
-            <textarea
-                id="prompt"
-                rows="4"
-                placeholder="Example: Calculate total sales for North Region using SUMIF"></textarea>
+    <textarea
+        id="prompt"
+        rows="4"
+        placeholder="Example: Calculate total sales for North Region using SUMIF"></textarea>
 
-            <button id="generateBtn">
+    <button id="generateBtn">
 
-                <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
 
-                Generate Answer
+        Generate Answer
 
-            </button>
+    </button>
 
-        </section>
+    <!-- Search Results -->
+  <div id="searchResults" class="search-results">
+    <div class="search-placeholder">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <h5>Suggested Formula</h5>
+        <p>Your suggested Excel formula will appear here. Start typing your requirement above to get AI-powered formula recommendations.</p>
+    </div>
+</div>
+
+</section>
 
         <!-- Result -->
 
@@ -139,6 +148,11 @@ Waiting for AI...
                 </button>
 
             </div>
+                <!-- Matching Formulas -->
+
+    <!--<div id="searchResults" class="search-results"></div> -->
+
+</div>
 
             <!-- Explanation -->
 
@@ -316,8 +330,80 @@ Waiting...
             </div>
 
 
-        </section>
 
+        </section>
+<!-- =========================
+     Footer
+========================= -->
+<footer class="footer-section">
+
+    <div class="footer-container">
+
+        <!-- Emotional Message -->
+        <div class="footer-card">
+            <h4><i class="fa-solid fa-heart"></i> Keep Learning</h4>
+            <p>
+                Every Excel expert was once a beginner. Don't be afraid of formulas—
+                understand them, practice them, and use them. One formula learned today
+                can save hours of work tomorrow. Your journey to becoming an Excel Pro
+                starts with a single formula. 💚
+            </p>
+        </div>
+
+        <!-- Suggestions -->
+        <div class="footer-card">
+            <h4><i class="fa-solid fa-lightbulb"></i> Suggestions</h4>
+            <p>
+                Have an idea for a new feature, formula, or improvement?
+                We'd love to hear your feedback and make this tool even better for everyone.
+            </p>
+
+            <a href="mailto:copypastebhaiya@gmail.com" class="footer-btn">
+                <i class="fa-solid fa-paper-plane"></i>
+                Send Suggestion
+            </a>
+        </div>
+
+        <!-- Contact -->
+        <div class="footer-card">
+            <h4><i class="fa-solid fa-address-card"></i> Contact</h4>
+
+            <p>
+                Questions, bug reports, or collaboration ideas?
+                Feel free to reach out anytime.
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                copypastebhaiya@gmail.com
+            </p>
+
+            <p>
+                <i class="fa-brands fa-github"></i>
+                GitHub Portfolio
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+<p>
+    🚀 Designed & Developed by <strong>Sunil Kumar</strong><br>
+    <br>
+    <small>
+        Every Excel expert was once a beginner. Keep learning, keep growing, and let Excel become your superpower.
+    </small>
+
+    <p><br>
+            © 2026 Excel AI. All Rights Reserved.</p>
+</p>
+
+        <p>
+            Made with <i class="fa-solid fa-heart text-danger"></i> for Excel Learners Worldwide 
+        </p>
+    </div>
+
+</footer>
     </main>
 
     <!-- JS -->
